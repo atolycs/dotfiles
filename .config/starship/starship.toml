@@ -5,11 +5,12 @@ $username\
 $hostname\
 [](bg:#444343 fg:#0f4e72)\
 $directory\
-[](fg:#444343 bg:#22a7f2)\
-$git_branch\
-$git_status\
-[ ](fg:#22a7f2)\
+($git_branch$git_status)\
+[ ](#444343)\
 """
+#[](fg:#444343 bg:#22a7f2)\
+#[](fg:#22a7f2 bg:#444343)\
+#[](fg:#22a7f2 bg:#444343)\
 
 # Disable the blank line at the start of the prompt
 # add_newline = false
@@ -41,7 +42,8 @@ truncation_length = 1
 style = "bg:#444343"
 read_only = "󰌾"
 read_only_style = "fg:red bg:#444343"
-format = "[ $path ]($style)[ $read_only ]($read_only_style)"
+format = "[ $path ]($style)[ $read_only]($read_only_style)"
+
 
 # Here is how you can shorten some long paths by text replacement
 # similar to mapped_locations in Oh My Posh:
@@ -79,11 +81,11 @@ format = '[ $symbol ($version) ]($style)'
 [git_branch]
 symbol = ""
 style = "bg:#22a7f2"
-format = '[ $symbol $branch ]($style)'
+format = '[](fg:#22a7f2 bg:#444343)[$symbol $branch]($style)'
 
 [git_status]
 style = "bg:#22a7f2"
-format = '[$all_status$ahead_behind ]($style)'
+format = '[$all_status$ahead_behind ]($style)[](fg:#22a7f2 bg:#444343)'
 
 [golang]
 symbol = " "
