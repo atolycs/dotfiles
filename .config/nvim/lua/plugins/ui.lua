@@ -13,7 +13,7 @@ return {
 					icon = "󰖷 ",
 					key = "c",
 				},
-				{ action = "Lazy", desc = "Lazy plugin manager", icon = "󰒲 ", key = "c" },
+				{ action = "Lazy", desc = "Lazy plugin manager", icon = "󰒲 ", key = "l" },
 				{ action = "qa", desc = "Quit", icon = " ", key = "q" },
 			}
 		end,
