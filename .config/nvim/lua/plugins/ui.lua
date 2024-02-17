@@ -16,6 +16,16 @@ return {
 				{ action = "Lazy", desc = "Lazy plugin manager", icon = "󰒲 ", key = "l" },
 				{ action = "qa", desc = "Quit", icon = " ", key = "q" },
 			}
+
+			if vim.o.filetype == "lazy" then
+				vim.cmd.close()
+				vim.api.nvim_create_autocmd("User", {
+					pattern = "DashboardLoaded",
+					callback = function()
+						require("lazy").show()
+					end,
+				})
+			end
 		end,
 	},
 }
