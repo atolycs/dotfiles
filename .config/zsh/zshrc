@@ -1,3 +1,12 @@
 setopt PUSHD_IGNORE_DUPS
 
+# fzf history search
+
+function select-history() {
+  BUFFER=$(history -n -r 1 | fzf --no-sort +m --query "$LBUFFER" --prompt="History > " --border --margin=1 --padding=1 --height=80%)
+  CURSOR=$#BUFFER
+}
+zle -N select-history
+bindkey '^r' select-history
+
 
