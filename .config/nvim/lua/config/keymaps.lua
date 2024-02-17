@@ -19,9 +19,15 @@ keymap.set("n", "<tab>", ":BufferLineCycleNext<Return>", opts)
 keymap.set("n", "<S-tab>", ":BufferLineCyclePrev<Return>", opts)
 keymap.set("n", "q", ":bdelete<Return>", opts)
 
+-- split window
+keymap.set("n", "ss", ":split<Return>", opts)
+keymap.set("n", "sv", ":vsplit<Return>", opts)
+
 -- move window
-keymap.set("n", "sh", "<C-w>h")
-keymap.set("n", "sk", "<C-w>k")
+keymap.set("n", "sh", "<C-w>h") -- left
+keymap.set("n", "sk", "<C-w>k") -- up
+keymap.set("n", "sj", "<C-w>j") -- down
+keymap.set("n", "sl", "<C-w>l") -- right
 
 -- select All
 keymap.set("n", "<C-a>", "gg<S-v>G")

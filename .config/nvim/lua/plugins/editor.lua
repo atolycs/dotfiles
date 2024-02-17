@@ -19,8 +19,8 @@ return {
 						path = "%:p:h",
 						cwd = telescope_buffer_dir(),
 						hidden = true,
-						grouped = true,
 						initial_mode = "normal",
+						layout_config = { height = 40 },
 					})
 				end,
 				desc = "Open File Browser with the path of the current buffer",
@@ -35,9 +35,9 @@ return {
 			opts.defaults = vim.tbl_deep_extend("force", opts.defaults, {
 				layout_strategy = "horizontal",
 				layout_config = { prompt_position = "top" },
-				winblend = 0,
 				wrap_results = true,
 				sorting_strategy = "ascending",
+				winblend = 0,
 				mappings = {
 					n = {},
 				},
@@ -51,13 +51,13 @@ return {
 
 			opts.extensions = {
 				file_browser = {
-					theme = "dropdown",
 					hijack_netrw = true,
 					mappings = {
 						-- insert mode mapping
 						["n"] = {
 							["N"] = fb_actions.create,
 							["h"] = fb_actions.goto_parent_dir,
+							--[""]
 							["/"] = function()
 								vim.cmd("startinsert")
 							end,

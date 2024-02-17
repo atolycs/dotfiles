@@ -7,6 +7,7 @@ return {
 		opts = function(_, opts)
 			opts.config.center = {
 				{ action = "ene | startinsert", desc = "New File", icon = " ", key = "n" },
+				{ action = "Telescope file_browser", desc = "Open File", icon = " ", key = "o" },
 				{
 					action = [[lua require("lazyvim.util").telescope.config_files()()]],
 					desc = "Config",
