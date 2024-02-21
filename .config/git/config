@@ -3,6 +3,7 @@
 
 [user]
   name = Atolycs
+	useConfigOnly = true
 
 [credential "https://github.com"]
 	helper = 
