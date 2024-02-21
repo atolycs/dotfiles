@@ -6,7 +6,7 @@ return {
 		"nvimdev/dashboard-nvim",
 		opts = function(_, opts)
 			opts.config.center = {
-				{ action = "ene | startinsert", desc = "New File", icon = " ", key = "n" },
+				{ action = "ene ", desc = "New File", icon = " ", key = "n" },
 				{
 					action = "Telescope file_browser hidden=true initial_mode=normal",
 					desc = "Open File",
@@ -20,7 +20,8 @@ return {
 					key = "c",
 				},
 				{ action = "Lazy", desc = "Lazy plugin manager", icon = "󰒲 ", key = "l" },
-				{ action = "qa", desc = "Quit", icon = " ", key = "q" },
+				{ action = "Mason", desc = "Mason LSP Manager", icon = " ", key = "m" },
+				{ action = "qa", desc = "Quit", icon = "󰩈 ", key = "q" },
 			}
 			if vim.o.filetype == "lazy" then
 				vim.cmd.close()
