@@ -10,4 +10,4 @@ function select-history() {
 zle -N select-history
 bindkey '^r' select-history
 
-
+setopt hist_ignore_dups
