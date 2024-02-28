@@ -16,8 +16,8 @@ if (-not (Get-Module -Name PSFzf -ListAvailable))
 
 # my plugin load
 
-$baseDir = $(split-path $PROFILE.CurrentUserAllHosts -Parent)
-$files = @(Get-ChildItem $baseDir/shell.d -Filter *.ps1 | Where-Object { $_.FullName })
+$baseDir = $(Join-path $PSScriptRoot/shell.d)
+$files = @(Get-ChildItem $baseDir -Filter *.ps1 | Where-Object { $_.FullName })
 
 foreach ($s in $files)
 {
