@@ -3,7 +3,8 @@
 if (-not (Get-Module -Name PSFzf -ListAvailable))
 {
   Install-Module -Name PSFzf
-  winget install --id junegunn.fzf frippery.busybox-w32
+  winget install --id junegunn.fzf 
+  winget install --id frippery.busybox-w32
 }
 
 #Import-Module PSFzf
