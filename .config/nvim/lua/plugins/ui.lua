@@ -21,6 +21,7 @@ return {
 				},
 				{ action = "Lazy", desc = "Lazy plugin manager", icon = "󰒲 ", key = "l" },
 				{ action = "Mason", desc = "Mason LSP Manager", icon = " ", key = "m" },
+				{ action = "checkhealth", desc = "Check NeoVim Health", icon = " " },
 				{ action = "qa", desc = "Quit", icon = "󰩈 ", key = "q" },
 			}
 			if vim.o.filetype == "lazy" then
@@ -38,6 +39,7 @@ return {
 		"rcarriga/nvim-notify",
 		opts = {
 			timeout = 3000,
+			background_colour = "#000000",
 		},
 	},
 }

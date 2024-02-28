@@ -36,3 +36,6 @@ keymap.set("n", "<C-a>", "gg<S-v>G")
 keymap.set("n", "<C-j>", function()
 	vim.diagnostic.goto_next()
 end, opts)
+
+-- Paste down
+keymap.set("v", "P", "y<down>P")
