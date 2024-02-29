@@ -32,7 +32,8 @@ Remove-Variable files
 
 
 Set-PSReadLineKeyHandler -Chord Ctrl+r -ScriptBlock {
-  $command = Get-Content (Get-PSReadLineOption).HistorySavePath | busybox tac | busybox awk '!a[$0]++' | Invoke-Fzf -NoSort -Exact -Prompt "History > "
+  $command = Get-Content (Get-PSReadLineOption).HistorySavePath | busybox tac | busybox awk '!a[$0]++' | 
+    Invoke-Fzf -NoSort -Exact -Prompt "History > " -Height 80%
   [Microsoft.PowerShell.PSConsoleReadLine]::InvokePrompt()
 
   if (!$command)
