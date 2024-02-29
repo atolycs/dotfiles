@@ -1,9 +1,8 @@
 
 # Unix like which command
 
-function which() {
-  Param($command)
-  Get-Command $command 
-  return $?
+function which($command)
+{
+  Get-Command $command -ea SilentlyContinue | Select-Object Source |
+    Format-Table -HideTableHeaders
 }
-
