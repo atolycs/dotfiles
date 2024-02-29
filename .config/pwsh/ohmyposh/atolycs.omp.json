@@ -1,6 +1,5 @@
 {
   "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
-  "console_title_template": "{{ .UserName }}@{{ .HostName }}: {{ .Folder }}",
   "blocks": [
     {
       "alignment": "left",
@@ -12,7 +11,7 @@
             "display_host": true
           },
           "style": "plain",
-          "template": "{{ .UserName }}<#000000>@</><#e06c75>{{ .HostName }}</>",
+          "template": "{{ .UserName }}<#ffffff>@</><#e06c75>{{ .HostName }}</>",
           "type": "session"
         },
         {
@@ -52,7 +51,7 @@
         {
           "foreground": "#FFD54F",
           "style": "plain",
-          "template": " {{if .Root}}#{{else}}%{{end}}",
+          "template": "{{if .Root}}#{{else}}%{{end}}",
           "type": "text"
         }
       ],
@@ -68,43 +67,12 @@
           "style": "plain",
           "template": " {{ if gt .Code 0 }} :( {{ else }} {{ end }} ",
           "type": "status"
-        },
-        {
-          "background": "#f36943",
-          "background_templates": [
-            "{{if eq \"Charging\" .State.String}}#40c4ff{{end}}",
-            "{{if eq \"Discharging\" .State.String}}#ff5722{{end}}",
-            "{{if eq \"Full\" .State.String}}#4caf50{{end}}"
-          ],
-          "foreground": "#ffffff",
-          "invert_powerline": true,
-          "powerline_symbol": "\ue0b2",
-          "properties": {
-            "charged_icon": "\ueb2d ",
-            "charging_icon": "\uf241 ",
-            "discharging_icon": "\uf242 "
-          },
-          "style": "powerline",
-          "template": " {{ if not .Error }}{{ .Icon }}{{ .Percentage }}{{ end }}{{ .Error }}% ",
-          "type": "battery"
-        },
-        {
-          "background": "#61afef",
-          "foreground": "#ffffff",
-          "invert_powerline": true,
-          "properties": {
-            "time_format": "15:04 (Mon)"
-          },
-          "style": "diamond",
-          "template": " {{ .CurrentDate | date .Format }} ",
-          "trailing_diamond": "\ue0b4",
-          "type": "time"
         }
       ],
       "type": "rprompt"
     }
   ],
-  "console_title_template": "{{.UserName}}@{{.HostName}} : {{.Folder}}",
+  "console_title_template": "{{.UserName}}@{{.HostName}} : {{ .PWD }}",
   "final_space": true,
   "version": 2
 }
