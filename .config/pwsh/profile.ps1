@@ -53,17 +53,23 @@ Set-PSReadLineKeyHandler -Chord Ctrl+r -ScriptBlock {
 
 
 # starship setup
-if (Get-Command starship -ea SilentlyContinue)
-{
-  $env:STARSHIP_CONFIG = Join-Path $PSScriptRoot ".\starship\starship.toml"
-  Invoke-Expression (&starship init powershell)
-}
+# if (Get-Command starship -ea SilentlyContinue)
+# {
+#   function Invoke-Starship-PreCommand ($prompt)
+#   {
+#     $host.ui.RawUI.WindowTitle = "$env:USERNAME@$env:COMPUTERNAME`: $pwd` "
+#   }
+#
+#
+#   $env:STARSHIP_CONFIG = Join-Path $PSScriptRoot ".\starship\starship.toml"
+#   Invoke-Expression (&starship init powershell)
+# }
 
 # Oh My posh setup
-# if (Get-Command oh-my-posh -ea SilentlyContinue)
-# {
-#   $omp_config = Join-Path $PSScriptRoot ".\ohmyposh\atolycs.omp.json"
-#   oh-my-posh --init --shell pwsh --config $omp_config | Invoke-Expression
-#   #oh-my-posh --init --shell pwsh  | Invoke-Expression
-# }
-#
+if (Get-Command oh-my-posh -ea SilentlyContinue)
+{
+  $omp_config = Join-Path $PSScriptRoot ".\ohmyposh\atolycs.omp.json"
+  oh-my-posh --init --shell pwsh --config $omp_config | Invoke-Expression
+  #oh-my-posh --init --shell pwsh --config "spaceship.omp.json" | Invoke-Expression
+}
+
