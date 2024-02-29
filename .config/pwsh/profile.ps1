@@ -3,7 +3,7 @@
 if (-not (Get-Module -Name PSFzf -ListAvailable))
 {
   Install-Module -Name PSFzf
-  winget install --id junegunn.fzf 
+  winget install --id junegunn.fzf
   winget install --id frippery.busybox-w32
 }
 
@@ -32,7 +32,7 @@ Remove-Variable files
 
 
 Set-PSReadLineKeyHandler -Chord Ctrl+r -ScriptBlock {
-  $command = Get-Content (Get-PSReadLineOption).HistorySavePath | busybox tac | busybox awk '!a[$0]++' | 
+  $command = Get-Content (Get-PSReadLineOption).HistorySavePath | busybox tac | busybox awk '!a[$0]++' |
     Invoke-Fzf -NoSort -Exact -Prompt "History > " -Height 80%
   [Microsoft.PowerShell.PSConsoleReadLine]::InvokePrompt()
 
@@ -51,9 +51,19 @@ Set-PSReadLineKeyHandler -Chord Ctrl+r -ScriptBlock {
 #     }
 # }
 
-# Oh My posh setup
-if (Get-Command oh-my-posh -ea SilentlyContinue)
+
+# starship setup
+if (Get-Command starship -ea SilentlyContinue)
 {
-  oh-my-posh init pwsh | Invoke-Expression
+  $env:STARSHIP_CONFIG = Join-Path $PSScriptRoot ".\starship\starship.toml"
+  Invoke-Expression (&starship init powershell)
 }
 
+# Oh My posh setup
+# if (Get-Command oh-my-posh -ea SilentlyContinue)
+# {
+#   $omp_config = Join-Path $PSScriptRoot ".\ohmyposh\atolycs.omp.json"
+#   oh-my-posh --init --shell pwsh --config $omp_config | Invoke-Expression
+#   #oh-my-posh --init --shell pwsh  | Invoke-Expression
+# }
+#
