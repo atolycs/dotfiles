@@ -11,8 +11,13 @@ if (-not (Get-Module -Name posh-git -ListAvailable)) {
   Install-Module -Name posh-git
 }
 
+if (-not (Get-Module -Name Terminal-Icons -ListAvailable)){
+    Install-Module -Name Terminal-Icons
+  }
+
 #Import-Module PSFzf
 Import-Module posh-git
+Import-Module Terminal-Icons
 
 # Console Encode UTF-8
 [System.Console]::OutputEncoding = [System.Text.Encoding]::GetEncoding("utf-8")
