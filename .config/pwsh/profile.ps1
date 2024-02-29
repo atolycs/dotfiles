@@ -7,7 +7,12 @@ if (-not (Get-Module -Name PSFzf -ListAvailable))
   winget install --id frippery.busybox-w32
 }
 
+if (-not (Get-Module -Name posh-git -ListAvailable)) {
+  Install-Module -Name posh-git
+}
+
 #Import-Module PSFzf
+Import-Module posh-git
 
 # Console Encode UTF-8
 [System.Console]::OutputEncoding = [System.Text.Encoding]::GetEncoding("utf-8")
