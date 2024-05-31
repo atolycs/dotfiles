@@ -1,0 +1,15 @@
+
+# git completions
+
+alias g='command git'
+
+if [ "$(basename ${SHELL})" == "bash" ];then
+  source "/usr/share/bash-completion/completions/git"
+  ___git_complete g __git_main
+fi
+
+# ls 
+alias l='command ls --color=auto -CF'
+alias ls='command ls --color=auto'
+alias ll='command ls --color=auto -lva'
+
