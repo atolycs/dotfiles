@@ -1,0 +1,12 @@
+[include]
+  path = ~/.config/git/alias.config
+
+[init]
+  defaultBranch = main
+
+[user]
+  name = Atolycs
+
+[push]
+  autoSetupRemote = true
+
