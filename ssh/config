@@ -1,0 +1,7 @@
+Host *
+  IdentityAgent ${XDG_RUNTIME_DIR}/gnupg/S.gpg-agnet.ssh
+
+Include conf.d/*.conf
+
+Match Host *github.com
+  RequestTTY no
