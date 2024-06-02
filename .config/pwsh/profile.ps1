@@ -1,4 +1,8 @@
 
+# Tab Complete Change
+Set-PSReadLineKeyHandler -Key Tab -Function MenuComplete
+
+
 # import PSFzf
 if ( -not (Get-Module -Name PSFzf -ListAvailable) ) {
     Install-Module -Name PSFzf
