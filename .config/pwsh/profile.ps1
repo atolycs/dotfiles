@@ -9,7 +9,7 @@ if ( -not (Get-Module -Name PSFzf -ListAvailable) ) {
     winget install --id junegunn.fzf
 }
 
-if ( -not (Get-Module -Name posh git -ListAvailable) ) {
+if ( -not (Get-Module -Name posh-git -ListAvailable) ) {
     Install-Module -Name posh-git
 }
 
