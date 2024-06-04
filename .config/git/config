@@ -10,3 +10,13 @@
 [push]
   autoSetupRemote = true
 
+[diff]
+  tool = nvimdiff
+
+[difftool "nvimdiff"]
+  cmd = nvim -d \"$LOCAL\" \"$REMOTE\"
+  path = 
+
+[mergetool "nvimdiff"]
+  cmd = nvim -d \"$LOCAL\" \"$REMOTE\" -anestor \"$BASE\" -merge \"$MERGED\"
+  trustExitCode = true
