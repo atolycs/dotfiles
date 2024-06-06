@@ -13,3 +13,5 @@ alias l='command ls --color=auto -CF'
 alias ls='command ls --color=auto'
 alias ll='command ls --color=auto -lva'
 
+# cat to bat
+alias cat='command bat -p'
