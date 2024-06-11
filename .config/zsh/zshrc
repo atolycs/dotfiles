@@ -1,0 +1,24 @@
+
+# global alias load
+source ~/.config/alias/global.alias
+
+# asdf load for zsh
+. "$HOME/.asdf/asdf.sh"
+fpath=(${ASDF_DIR}/completions $fpath)
+
+autoload -Uz compinit && compinit
+
+# starship prompt configuration
+## if the terminal is not linux or xterm,
+## then load starship prompt
+
+case "$TERM" in
+  linux|xterm) :;;
+  *) prompt off;
+     export STARSHIP_CONFIG=~/.config/starship/starship.toml
+     eval "$(starship init zsh)";;
+esac
+
+# GPG TTY configuration
+export GPG_TTY=$(tty)
+gpg-connect-agent updatestartuptty /bye > /dev/null
