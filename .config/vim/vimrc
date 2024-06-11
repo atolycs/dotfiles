@@ -1,0 +1,37 @@
+" config
+set number
+set norelativenumber
+set autoindent
+set expandtab
+set shiftwidth=2
+set novisualbell
+
+
+" keymaps
+nnoremap qq <cmd>qa!<CR>
+nnoremap q <cmd>q<CR>
+nnoremap <C-l> e
+nnoremap <C-h> b
+
+" Delete backwords
+nnoremap dw vb"_d
+
+" Delete Blackhole
+nnoremap dd "_dd
+
+nnoremap <C-a> gg<S-V>G
+
+" spilit window
+nnoremap ss <cmd>split<CR>
+nnoremap sv <cmd>vsplit<CR>
+
+" Tabmode
+nnoremap <silent> <C-n> <cmd>tabnew<CR>
+nnoremap <silent> <Tab> <cmd>tabnext<CR>
+nnoremap <silent> <S-Tab> <cmd>tabprevious<CR>
+
+nnoremap sh <C-w>h
+nnoremap sj <C-w>j
+nnoremap sk <C-w>k
+nnoremap sl <C-w>l
+
