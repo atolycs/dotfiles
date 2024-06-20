@@ -6,6 +6,7 @@
 
 [user]
   name = Atolycs
+  useConfigOnly = true
 
 [push]
   autoSetupRemote = true
