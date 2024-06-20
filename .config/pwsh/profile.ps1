@@ -1,7 +1,7 @@
 
 # Tab Complete Change
 Set-PSReadLineKeyHandler -Key Tab -Function MenuComplete
-
+Set-PSReadLineOption -BellStyle none
 
 # import PSFzf
 if ( -not (Get-Module -Name PSFzf -ListAvailable) ) {
