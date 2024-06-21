@@ -38,5 +38,11 @@ forEach ($s in $files) {
   }
 }
 
+if (Get-Command oh-my-posh -ea SilentlyContinue)
+{
+  $omp_config = Join-Path $PSScriptRoot ".\ohmyposh\atolycs.omp.json"
+  oh-my-posh init pwsh --config $omp_config | Invoke-Expression
+}
+
 Remove-Variable baseDir
 Remove-Variable files
