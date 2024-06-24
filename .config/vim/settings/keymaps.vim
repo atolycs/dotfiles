@@ -5,6 +5,8 @@ nnoremap qq <cmd>qa!<CR>
 nnoremap q <cmd>q<CR>
 nnoremap <C-l> e
 nnoremap <C-h> b
+vnoremap <C-l> e
+vnoremap <C-h> b
 
 " Delete backwords
 nnoremap dw vb"_d
@@ -29,3 +31,9 @@ nnoremap sh <C-w>h
 nnoremap sj <C-w>j
 nnoremap sk <C-w>k
 nnoremap sl <C-w>l
+
+" Scroll up and down
+nnoremap <C-j> <C-f>
+nnoremap <C-k> <C-b>
+
+
