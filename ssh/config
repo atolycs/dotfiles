@@ -1,5 +1,5 @@
 Host *
-  IdentityAgent ${XDG_RUNTIME_DIR}/gnupg/S.gpg-agnet.ssh
+  IdentityAgent ${XDG_RUNTIME_DIR}/gnupg/S.gpg-agent.ssh
 
 Include conf.d/*.conf
 
