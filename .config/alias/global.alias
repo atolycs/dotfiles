@@ -3,7 +3,7 @@
 
 alias g='command git'
 
-if [ "$(basename ${SHELL})" == "bash" ];then
+if [[ "$(basename ${SHELL})" == "bash" ]];then
   source "/usr/share/bash-completion/completions/git"
   ___git_complete g __git_main
 fi
