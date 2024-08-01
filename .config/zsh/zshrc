@@ -2,10 +2,6 @@
 # global alias load
 source ~/.config/alias/global.alias
 
-# asdf load for zsh
-. "$HOME/.asdf/asdf.sh"
-fpath=(${ASDF_DIR}/completions $fpath)
-
 autoload -Uz compinit && compinit
 
 # starship prompt configuration
@@ -24,5 +20,5 @@ export GPG_TTY=$(tty)
 gpg-connect-agent updatestartuptty /bye > /dev/null
 
 typeset -U path PATH
-setopt hist_ignore_dups
+setopt hist_ignore_all_dups
 
