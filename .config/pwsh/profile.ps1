@@ -3,6 +3,17 @@
 Set-PSReadLineKeyHandler -Key Tab -Function MenuComplete
 Set-PSReadLineOption -BellStyle none
 
+# my plugin load
+
+$baseDir = $(Join-Path $PSScriptRoot ".\shell.d")
+$files = @(Get-ChildItem $baseDir -Filter *.ps1 | Where-Object { $_.FullName })
+
+forEach ($s in $files) {
+  if ( Test-Path $s ) {
+    . $s
+  }
+}
+
 # import PSFzf
 if ( -not (Get-Module -Name PSFzf -ListAvailable) ) {
     Install-Module -Name PSFzf
@@ -25,18 +36,6 @@ Import-Module Terminal-Icons
 # Console Encode UTF-8
 [System.Console]::OutputEncoding = [System.Text.Encoding]::GetEncoding("utf-8")
 [System.Console]::InputEncoding  = [System.Text.Encoding]::GetEncoding("utf-8")
-
-# my plugin load
-
-$baseDir = $(Join-Path $PSScriptRoot ".\shell.d")
-$files = @(Get-ChildItem $baseDir -Filter *.ps1 | Where-Object { $_.FullName })
-
-
-forEach ($s in $files) {
-  if ( Test-Path $s ) {
-    . $s
-  }
-}
 
 if (Get-Command oh-my-posh -ea SilentlyContinue)
 {
