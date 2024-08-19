@@ -8,10 +8,21 @@ if [[ "$(basename ${SHELL})" == "bash" ]];then
   ___git_complete g __git_main
 fi
 
-# ls 
-alias l='command ls --color=auto -CF'
-alias ls='command ls --color=auto'
-alias ll='command ls --color=auto -lva'
+# ls or eza
+
+if command -v eza &> /dev/null ;then
+  alias l='command eza -l --icons'
+  alias ls='command eza --icons'
+  alias ll='command eza -lva --icons '
+else
+  alias l='command ls --color=auto -CF'
+  alias ls='command ls --color=auto'
+  alias ll='command ls --color=auto -lva'
+fi
+
 
 # cat to bat
-alias cat='command bat -p'
+if command -v bat &> /dev/null ;then
+  alias cat='command bat -p'
+fi
+
