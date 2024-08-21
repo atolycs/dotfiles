@@ -10,9 +10,14 @@ autoload -Uz compinit && compinit
 
 case "$TERM" in
   linux|xterm) :;;
-  *) prompt off;
+  *) 
+    if type -a starship>/dev/null 2>&1;then;
+     prompt off;
      export STARSHIP_CONFIG=~/.config/starship/starship.toml
-     eval "$(starship init zsh)";;
+     eval "$(starship init zsh)";
+    else;
+      :
+    fi;;
 esac
 
 # GPG TTY configuration
