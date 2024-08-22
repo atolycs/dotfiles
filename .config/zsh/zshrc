@@ -27,3 +27,11 @@ gpg-connect-agent updatestartuptty /bye > /dev/null
 typeset -U path PATH
 setopt hist_ignore_all_dups
 
+function fzf-select-history() {
+  FZF_DEFAULT_OPTS='--prompt="History >" --border --padding=1 --margin=1 --no-sort +m --height 80% --reverse --border'
+  BUFFER=$(history -n -r 1 | fzf --query "$LBUFFER" --prompt="History >" --border --padding=1 --margin=1 --no-sort +m --height 80% --reverse --border )
+  CURSOR=$#BUFFER
+  zle redisplay
+}
+zle -N fzf-select-history
+bindkey '^r' fzf-select-history
