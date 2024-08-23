@@ -33,5 +33,7 @@ function fzf-select-history() {
   CURSOR=$#BUFFER
   zle redisplay
 }
-zle -N fzf-select-history
-bindkey '^r' fzf-select-history
+if type -a fzf>/dev/null 2>&1;then;
+  zle -N fzf-select-history
+  bindkey '^r' fzf-select-history
+fi
