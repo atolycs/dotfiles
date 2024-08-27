@@ -26,3 +26,7 @@ if command -v bat &> /dev/null ;then
   alias cat='command bat -p'
 fi
 
+if command -v batcat &> /dev/null ;then
+  alias cat='command batcat -p'
+fi
+
