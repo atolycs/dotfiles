@@ -26,6 +26,8 @@ Register-ArgumentCompleter -Native -CommandName winget -ScriptBlock {
         }
 }
 
+# aws completion
+
 Register-ArgumentCompleter -Native -CommandName aws -ScriptBlock {
     param($commandName, $wordToComplete, $cursorPosition)
         $env:COMP_LINE=$wordToComplete
