@@ -1,16 +1,16 @@
-if (Get-Command gh) {
+if (Get-Command gh -ErrorAction SilentlyContinue ) {
   Invoke-Expression -Command $(gh completion -s powershell | Out-String)
 }
 
-if (Get-Command spotify_player.exe) {
+if (Get-Command spotify_player.exe -ErrorAction SilentlyContinue) {
     Invoke-Expression -Command $(spotify_player.exe generate powershell | Out-String)
 }
 
-if (Get-Command go-spotify-cli-windows-amd64.exe) {
+if (Get-Command go-spotify-cli-windows-amd64.exe -ErrorAction SilentlyContinue) {
     Invoke-Expression -Command $(go-spotify-cli-windows-amd64.exe completion powershell | Out-String)
 }
 
-if (Get-Command oh-my-posh.exe) {
+if (Get-Command oh-my-posh.exe -ErrorAction SilentlyContinue) {
     Invoke-Expression -Command $(oh-my-posh.exe completion powershell | Out-String)
 }
 
