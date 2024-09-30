@@ -72,7 +72,7 @@
       "type": "rprompt"
     }
   ],
-  "console_title_template": "{{.UserName}}@{{.HostName}} : {{ .PWD }}",
+  "console_title_template": "{{if .Root}}Administrator: {{end}}{{.UserName}}@{{.HostName}} : {{ .PWD }}",
   "final_space": true,
   "version": 2
 }
