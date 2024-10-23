@@ -40,3 +40,11 @@ function touch() {
 function refreshenv() {
     $env:PATH = [System.Environment]::GetEnvironmentVariable("Path", "Machine") + ";" + [System.Environment]::GetEnvironmentVariable("Path", "User")
 }
+
+function realpath() {
+    param (
+      [string]$Path
+    )
+
+    [System.IO.Path]::GetFullPath((Join-Path $pwd $Path))
+}
