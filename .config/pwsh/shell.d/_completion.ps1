@@ -14,6 +14,10 @@ if (Get-Command oh-my-posh.exe -ErrorAction SilentlyContinue) {
     Invoke-Expression -Command $(oh-my-posh.exe completion powershell | Out-String)
 }
 
+if (Test-Path "C:\Program Files\Cloudflare\Cloudflare WARP\warp-cli.exe" -ErrorAction SilentlyContinue) {
+    Invoke-Expression -Command $(&"C:\Program Files\Cloudflare\Cloudflare WARP\warp-cli.exe" generate-completions powershell | Out-String)
+}
+
 # Winget completion
 
 Register-ArgumentCompleter -Native -CommandName winget -ScriptBlock {
