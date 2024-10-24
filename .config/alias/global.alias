@@ -32,3 +32,5 @@ fi
 
 
 alias reload="exec ${SHELL} -l"
+
+alias c="cd"
