@@ -4,3 +4,5 @@ gui:
   timeFormat: 06 Jan 02
   shortTimeFormat: 15:04
 
+os:
+  editPreset: 'nvim'
