@@ -1,0 +1,6 @@
+gui:
+  language: en
+  mouseEvents: false
+  timeFormat: 06 Jan 02
+  shortTimeFormat: 15:04
+
