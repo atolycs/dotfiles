@@ -1,0 +1,11 @@
+[Unit]
+Description=Github Project Folder Bind Mounts
+Before=local-fs.target umount.target
+
+[Mount]
+What=@@BIND_MOUNT@@
+Where=%h/github
+Type=fuse.bindfs
+
+[Install]
+WantedBy=multi-user.target
