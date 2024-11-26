@@ -45,3 +45,8 @@ Register-ArgumentCompleter -Native -CommandName aws -ScriptBlock {
         Remove-Item Env:\COMP_LINE     
         Remove-Item Env:\COMP_POINT  
 }
+
+if ( -not (Get-Module -Name npm-completion -ListAvailable) ) {
+  Install-Module npm-completion -Scope CurrentUser
+}
+Import-Module npm-completion
