@@ -4,7 +4,7 @@ Before=local-fs.target umount.target
 
 [Mount]
 What=@@BIND_MOUNT@@
-Where=%h/github
+Where=%h/gitlab
 Type=fuse.bindfs
 
 [Install]
