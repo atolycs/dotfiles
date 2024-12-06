@@ -4,6 +4,7 @@ command_timeout = 1000
 
 format = """
 [](#0b72af)\
+$custom\
 $username\
 [](bg:#0f4e72 fg:#0b72af)\
 $hostname\
@@ -15,12 +16,25 @@ $directory\
 #[](fg:#444343 bg:#22a7f2)\
 #[](fg:#22a7f2 bg:#444343)\
 #[](fg:#22a7f2 bg:#444343)\
+#[]()
 
 # Disable the blank line at the start of the prompt
 # add_newline = false
 
 # You can also replace your username with a neat symbol like   or disable this
 # and use the os module below
+
+[custom.venv]
+description = "show venv flag"
+command = """
+python --version | cut -d " " -f 2
+"""
+when = '''[[ -n "$VIRTUAL_ENV" ]]'''
+format = '[](bg:#0b72af fg:yellow bold)[venv via ${output}](bg:yellow bold fg:black)[](bg:#0b72af fg:yellow bold)'
+
+[python]
+format = '[${custom.venv}]($style)'
+
 [username]
 show_always = true
 style_user = "bg:#0b72af"
