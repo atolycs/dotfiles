@@ -18,6 +18,7 @@ else
   alias l='command ls --color=auto -CF'
   alias ls='command ls --color=auto'
   alias ll='command ls --color=auto -lva'
+  alias lsd='command ls --color=auto -lsda (*)/'
 fi
 
 
