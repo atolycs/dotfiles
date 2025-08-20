@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+tmux split-window -v -l 20% npm run dev
+tmux select-pane -U
