@@ -2,6 +2,7 @@
 # global alias load
 source ~/.config/alias/global.alias
 
+autoload bashcompinit && bashcompinit
 autoload -Uz compinit && compinit
 
 # starship prompt configuration
@@ -20,6 +21,10 @@ case "$TERM" in
     fi;;
 esac
 
+if [[ "$(uname)" == "Darwin" ]];then
+  source ~/.config/zsh/zshrc.Darwin
+fi
+
 # GPG TTY configuration
 export GPG_TTY=$(tty)
 gpg-connect-agent updatestartuptty /bye > /dev/null
@@ -37,3 +42,4 @@ if type -a fzf>/dev/null 2>&1;then;
   zle -N fzf-select-history
   bindkey '^r' fzf-select-history
 fi
+
