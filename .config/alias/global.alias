@@ -31,7 +31,10 @@ if command -v batcat &> /dev/null ;then
   alias cat='command batcat -p'
 fi
 
-
 alias reload="exec ${SHELL} -l"
 
 alias c="cd"
+
+if [[ "$(uname)" == "Darwin" ]];then
+  source ~/.config/alias/Darwin.alias
+fi
