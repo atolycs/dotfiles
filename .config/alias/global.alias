@@ -38,3 +38,9 @@ alias c="cd"
 if [[ "$(uname)" == "Darwin" ]];then
   source ~/.config/alias/Darwin.alias
 fi
+
+
+# clipboard to ssh
+toclip() {
+  echo -e "\e]52;c;$(base64 | tr -d '\n')\e\\"
+}
