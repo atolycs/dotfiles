@@ -1,2 +1,8 @@
 gpgconf --launch gpg-agent
 complete -C '/opt/homebrew/bin/aws_completer' aws
+
+export LC_COLLATE=C
+
+typeset -U path
+
+path=(~/.bin ${path})
