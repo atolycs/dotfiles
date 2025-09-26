@@ -6,3 +6,17 @@ export LC_COLLATE=C
 typeset -U path
 
 path=(~/.bin ${path})
+
+export PATH="/opt/homebrew/sbin:$PATH"
+
+
+_BEGIN="%F{#0b72af}"
+_USERNAME="%K{#0b72af}%F{#ffffff}%n%k%f"
+_USER_HOST_SEP="%K{#0f4e72}%F{#0b72af}%k%f"
+_HOSTNAME="%K{#0f4e72}%F{#ffffff}%m%k%f"
+_HOST_DIR_SEP="%F{#0f4e72}%K{#444343}%k%f"
+_DIR="%F{#ffffff}%K{#444343} %(3~|.../%2~|%~) %k%f"
+_DIR_CMD_SEP="%F{#444343}%F"
+_CMDLINE="%F{#ffffff}%# %f"
+
+PS1="${_BEGIN}${_USERNAME}${_USER_HOST_SEP}${_HOSTNAME}${_HOST_DIR_SEP}${_DIR}${_DIR_CMD_SEP} ${_CMDLINE}"
