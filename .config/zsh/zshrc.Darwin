@@ -19,4 +19,6 @@ _DIR="%F{#ffffff}%K{#444343} %(3~|.../%2~|%~) %k%f"
 _DIR_CMD_SEP="%F{#444343}%F"
 _CMDLINE="%F{#ffffff}%# %f"
 
-PS1="${_BEGIN}${_USERNAME}${_USER_HOST_SEP}${_HOSTNAME}${_HOST_DIR_SEP}${_DIR}${_DIR_CMD_SEP} ${_CMDLINE}"
+if [[ "${LC_TERMINAL}" == "iTerm2" ]];then
+  PS1="${_BEGIN}${_USERNAME}${_USER_HOST_SEP}${_HOSTNAME}${_HOST_DIR_SEP}${_DIR}${_DIR_CMD_SEP} ${_CMDLINE}"
+fi
