@@ -26,8 +26,10 @@ if [[ "$(uname)" == "Darwin" ]];then
 fi
 
 # GPG TTY configuration
-export GPG_TTY=$(tty)
-gpg-connect-agent updatestartuptty /bye > /dev/null
+if type gpg-connect-agent &>/dev/null; then
+  export GPG_TTY=$(tty)
+  gpg-connect-agent updatestartuptty /bye > /dev/null
+fi
 
 typeset -U path PATH
 setopt hist_ignore_all_dups
