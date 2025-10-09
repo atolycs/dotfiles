@@ -7,6 +7,8 @@ background-image = ~/Pictures/mili-miracle-milk.jpeg
 background-image-opacity = 0.3
 background-opacity = 0.95
 
+shell-integration-features = sudo
+
 # Session save disable
 window-save-state = never
 
