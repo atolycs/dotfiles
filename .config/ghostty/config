@@ -1,0 +1,13 @@
+# Window size
+window-height = 30
+window-width = 120
+
+# Background image
+background-image = ~/Pictures/mili-miracle-milk.jpeg
+background-image-opacity = 0.3
+
+# Session save disable
+window-save-state = never
+
+# Application notifications
+app-notifications = no-clipboard-copy, config-reload

@@ -19,6 +19,15 @@ _DIR="%F{#ffffff}%K{#444343} %(3~|.../%2~|%~) %k%f"
 _DIR_CMD_SEP="%F{#444343}%F"
 _CMDLINE="%F{#ffffff}%# %f"
 
-if [[ "${LC_TERMINAL}" == "iTerm2" ]];then
+if [[ "${LC_TERMINAL}" == "iTerm2" || "$TERM" == "xterm-ghostty" ]]; then
   PS1="${_BEGIN}${_USERNAME}${_USER_HOST_SEP}${_HOSTNAME}${_HOST_DIR_SEP}${_DIR}${_DIR_CMD_SEP} ${_CMDLINE}"
 fi
+
+case "${TERM}" in
+  ?term*|rxvt*|screen) PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME:=$(hostname)}: ${PWD/$HOME/"~"}\007"';;
+esac
+
+precmd() {
+  # print -Pn "\e]0;\a"
+  eval "${PROMPT_COMMAND}: $1"
+}
