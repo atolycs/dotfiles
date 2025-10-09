@@ -1,4 +1,8 @@
-gpgconf --launch gpg-agent
+
+if type gpgconf &> /dev/null; then
+  gpgconf --launch gpg-agent
+fi
+  
 complete -C '/opt/homebrew/bin/aws_completer' aws
 
 export LC_COLLATE=C
