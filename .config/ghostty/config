@@ -5,6 +5,7 @@ window-width = 120
 # Background image
 background-image = ~/Pictures/mili-miracle-milk.jpeg
 background-image-opacity = 0.3
+background-opacity = 0.95
 
 # Session save disable
 window-save-state = never
