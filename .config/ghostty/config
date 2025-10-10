@@ -14,3 +14,6 @@ window-save-state = never
 
 # Application notifications
 app-notifications = no-clipboard-copy, config-reload
+
+# font family
+font-family = "FiraCode Nerd Font Mono"
