@@ -33,6 +33,7 @@ fi
 
 typeset -U path PATH
 setopt hist_ignore_all_dups
+setopt share_history
 
 function fzf-select-history() {
   FZF_DEFAULT_OPTS='--prompt="History >" --border --padding=1 --margin=1 --no-sort +m --height 80% --reverse --border'
