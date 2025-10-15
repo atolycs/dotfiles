@@ -17,3 +17,5 @@ app-notifications = no-clipboard-copy, config-reload
 
 # font family
 font-family = "FiraCode Nerd Font Mono"
+
+shell-integration-features = sudo, ssh-env
