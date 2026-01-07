@@ -8,6 +8,7 @@ $bulk_alias_list = @(
   @{Alias="ll"; Target="ls"};
   @{Alias="grep"; Target="findstr"};
   @{Alias="open"; Target="Invoke-Item"};
+  @{Alias="c"; Target="cd"}
 )
 
 
