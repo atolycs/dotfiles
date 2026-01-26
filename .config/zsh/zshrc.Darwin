@@ -2,8 +2,14 @@
 if type gpgconf &> /dev/null; then
   gpgconf --launch gpg-agent
 fi
-  
-complete -C '/opt/homebrew/bin/aws_completer' aws
+
+if type aws &> /dev/null; then
+  complete -C '/opt/homebrew/bin/aws_completer' aws
+fi
+
+if type brew &> /dev/null; then
+  export PATH="/opt/homebrew/bin:$PATH"
+fi
 
 export LC_COLLATE=C
 
