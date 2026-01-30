@@ -22,6 +22,8 @@ export PATH="/opt/homebrew/sbin:$PATH"
 source /opt/homebrew/etc/bash_completion.d/git-prompt.sh
 
 export GIT_PS1_SHOWDIRTYSTATE=true
+export GIT_PS1_SHOWUNTRACKEDFILES=true
+export GIT_PS1_SHOWUPSTREAM="auto"
 
 _BEGIN="%F{#0b72af}"
 _USERNAME="%K{#0b72af}%F{#ffffff}%n%k%f"
