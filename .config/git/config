@@ -18,6 +18,20 @@
   cmd = nvim -d "$LOCAL" "$REMOTE"
   path = 
 
+[difftool "winmerge"]
+  name = WinMerge File
+  cmd = '/mnt/c/Users/nishikawa/AppData/Local/Programs/WinMerge/WinMergeU.exe' -e -r -u -x -wl -wr -dl \"a/$MERGED\" -dr \"b/$MERGED\" \"$(wslpath -aw \"$LOCAL\")\" \"$(wslpath -aw \"$REMOTE\")\" 
+  trustExitCode = false
+
+[difftool "meld"]
+  name = Meld
+  cmd = '/mnt/c/Program Files/Meld/Meld.exe' \"$(wslpath -aw \"$LOCAL\")\" \"$(wslpath -aw \"$REMOTE\")\" 
+  trustExitCode = false
+
+; [difftool "winmerge"]
+;   name = WinMerge
+;   cmd = '/mnt/c/Users/nishikawa/AppData/Local/Programs/WinMerge/WinMergeU.exe' -u -e -dl "local" -dr "remote" \"$LOCAL\" \"$REMOTE\"
+
 [mergetool "nvimdiff"]
   cmd = nvim -d \"$LOCAL\" \"$REMOTE\" -anestor \"$BASE\" -merge \"$MERGED\"
   trustExitCode = true
