@@ -88,6 +88,28 @@ function refreshenv() {
     #$env:PATH = [System.Environment]::GetEnvironmentVariable("Path", "Machine") + ";" + [System.Environment]::GetEnvironmentVariable("Path", "User")
 }
 
+function ConvertTo-Hex {
+  # https://stackoverflow.com/a/48373145
+  # https://creativecommons.org/licenses/by-sa/3.0/
+  [CmdletBinding()]
+  Param(
+    [Parameter(
+      Position=0,
+      Mandatory=$true,
+      ValueFromPipeline=$true,
+      ValueFromPipelineByPropertyName=$true
+    )]
+    [string]$InputObject
+  )
+
+  $hex = [char[]]$InputObject |
+            ForEach-Object { '{0:x2}' -f [int]$_ }
+  if ($hex -ne $null) {
+      return (-join $hex)
+  }
+
+}
+
 function realpath() {
     param (
       [string]$Path
