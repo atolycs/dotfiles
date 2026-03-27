@@ -1,4 +1,15 @@
 
+autoload -Uz vcs_info
+autoload -Uz add-zsh-hook
+
+function git_precmd() {
+  vcs_info
+  psvar[1]=$vsc_info_msg_0_
+  if [[ -z ${psvar[1]} ]];then
+    psvar[1]=${(%):-%*}
+  fi
+}
+
 if type gpgconf &> /dev/null; then
   gpgconf --launch gpg-agent
 fi
@@ -7,9 +18,13 @@ if type aws &> /dev/null; then
   complete -C '/opt/homebrew/bin/aws_completer' aws
 fi
 
-if type brew &> /dev/null; then
-  export PATH="/opt/homebrew/bin:$PATH"
+if type port &> /dev/null;then
+  export PATH="/opt/local/libexec/gnubin:$PATH"
 fi
+
+# if type brew &> /dev/null; then
+#   export PATH="/opt/homebrew/bin:$PATH"
+# fi
 
 export LC_COLLATE=C
 
@@ -19,7 +34,9 @@ path=(~/.bin ${path})
 
 export PATH="/opt/homebrew/sbin:$PATH"
 
-source /opt/homebrew/etc/bash_completion.d/git-prompt.sh
+
+#source /opt/homebrew/etc/bash_completion.d/git-prompt.sh
+add-zsh-hook precmd git_precmd
 
 
 # export GIT_PS1_SHOWDIRTYSTATE=true
@@ -32,17 +49,17 @@ _USER_HOST_SEP="%K{#0f4e72}%F{#0b72af}%k%f"
 _HOSTNAME="%K{#0f4e72}%F{#ffffff}%m%k%f"
 _HOST_DIR_SEP="%F{#0f4e72}%K{#444343}%k%f"
 _DIR="%F{#ffffff}%K{#444343} %(3~|.../%2~|%~) %k%f"
-_GIT_PROMPT="%F{#0b72af}%K{#444343}%K{#0b72af}%F{#ffffff}$(__git_ps1 " %s")%F{#0b72af}%K{#444343}%K{reset}"
+# _GIT_PROMPT="%F{#0b72af}%K{#444343}%K{#0b72af}%F{#ffffff}$(__git_ps1 " %s")%F{#0b72af}%K{#444343}%K{reset}"
 _DIR_CMD_SEP="%F{#444343}%F"
 _CMDLINE="%F{#ffffff}%# %f"
 
-function precmd() {
-  if ! git rev-parse --is-inside-git-dir > /dev/null 2>&1; then
-    _GIT_PROMPT=""
-  fi
-}
 
-if [[ "${LC_TERMINAL}" == "iTerm2" || "$TERM" == "xterm-ghostty" ]]; then
+case "$TERM" in
+  xterm-*) PS1="${_BEGIN}${_USERNAME}${_USER_HOST_SEP}${_HOSTNAME}${_HOST_DIR_SEP}${_DIR}${_GIT_PROMPT}${_DIR_CMD_SEP} ${_CMDLINE}";;
+  *) :;;
+esac
+
+if [[ "$TERM" == "xterm-ghostty" ]]; then
   PS1="${_BEGIN}${_USERNAME}${_USER_HOST_SEP}${_HOSTNAME}${_HOST_DIR_SEP}${_DIR}${_GIT_PROMPT}${_DIR_CMD_SEP} ${_CMDLINE}"
 fi
 
