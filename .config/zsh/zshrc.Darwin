@@ -54,10 +54,12 @@ _DIR_CMD_SEP="%F{#444343}%F"
 _CMDLINE="%F{#ffffff}%# %f"
 
 
+if [[ "${__CFBundleIdentifier}" != "com.apple.Terminal" ]];then
 case "$TERM" in
   xterm-*) PS1="${_BEGIN}${_USERNAME}${_USER_HOST_SEP}${_HOSTNAME}${_HOST_DIR_SEP}${_DIR}${_GIT_PROMPT}${_DIR_CMD_SEP} ${_CMDLINE}";;
   *) :;;
 esac
+fi
 
 if [[ "$TERM" == "xterm-ghostty" ]]; then
   PS1="${_BEGIN}${_USERNAME}${_USER_HOST_SEP}${_HOSTNAME}${_HOST_DIR_SEP}${_DIR}${_GIT_PROMPT}${_DIR_CMD_SEP} ${_CMDLINE}"
