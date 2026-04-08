@@ -32,7 +32,7 @@ typeset -U path
 
 path=(~/.bin ${path})
 
-export PATH="/opt/homebrew/sbin:$PATH"
+# export PATH="/opt/homebrew/sbin:$PATH"
 
 
 #source /opt/homebrew/etc/bash_completion.d/git-prompt.sh
@@ -68,6 +68,8 @@ fi
 case "${TERM}" in
   ?term*|rxvt*|screen) PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME:=$(hostname)}: ${PWD/$HOME/"~"}\007"';;
 esac
+
+export PAGER="less"
 
 precmd() {
   # print -Pn "\e]0;\a"
