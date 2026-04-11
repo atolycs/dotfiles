@@ -22,6 +22,10 @@ if type port &> /dev/null;then
   export PATH="/opt/local/libexec/gnubin:$PATH"
 fi
 
+if type fnm &> /dev/null;then
+  eval "$(fnm env --use-on-cd --shell zsh)"
+fi
+
 # if type brew &> /dev/null; then
 #   export PATH="/opt/homebrew/bin:$PATH"
 # fi
