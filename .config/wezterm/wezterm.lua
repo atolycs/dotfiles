@@ -22,4 +22,9 @@ config.window_frame = {
 
 config.show_new_tab_button_in_tab_bar = false
 
+--- Key Binds
+config.keys = require("keybinds").keys
+config.key_tables = require("keybinds").key_tables
+config.leader = { key = "q", mods = "CTRL", timeout_milliseconds = 2000 }
+
 return config
