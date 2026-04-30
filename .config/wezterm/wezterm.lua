@@ -1,6 +1,12 @@
 local wezterm = require("wezterm")
 local config = wezterm.config_builder()
 
+local dimmer = { brightness = 0.1 }
+config.font = wezterm.font("FiraCode Nerd Font Mono", {
+	weight = "Regular",
+	stretch = "Normal",
+})
+
 config.automatically_reload_config = true
 config.initial_rows = 30
 config.initial_cols = 120
@@ -26,5 +32,13 @@ config.show_new_tab_button_in_tab_bar = false
 config.keys = require("keybinds").keys
 config.key_tables = require("keybinds").key_tables
 config.leader = { key = "q", mods = "CTRL", timeout_milliseconds = 2000 }
+config.background = {
+	{
+		source = {
+			File = os.getenv("HOME") .. "/Pictures/58839975_p0.png",
+		},
+		hsb = dimmer,
+	},
+}
 
 return config
