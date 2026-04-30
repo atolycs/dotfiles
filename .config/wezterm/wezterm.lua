@@ -7,9 +7,12 @@ config.font = wezterm.font("FiraCode Nerd Font Mono", {
 	stretch = "Normal",
 })
 
+local rows = 30
+local cols = 120
+
 config.automatically_reload_config = true
-config.initial_rows = 30
-config.initial_cols = 120
+config.initial_rows = rows
+config.initial_cols = cols
 config.use_ime = true
 
 -- font size
@@ -38,6 +41,9 @@ config.background = {
 			File = os.getenv("HOME") .. "/Pictures/58839975_p0.png",
 		},
 		hsb = dimmer,
+		-- height = rows .. "cell",
+		-- width = cols .. "cell",
+		-- attachment = "Fixed",
 	},
 }
 
