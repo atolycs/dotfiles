@@ -10,6 +10,8 @@ config.font = wezterm.font("FiraCode Nerd Font Mono", {
 local rows = 30
 local cols = 120
 
+local opac_rate = 0.7
+
 config.automatically_reload_config = true
 config.initial_rows = rows
 config.initial_cols = cols
@@ -18,7 +20,7 @@ config.use_ime = true
 -- font size
 config.font_size = 12.0
 
-config.window_background_opacity = 0.7
+config.window_background_opacity = opac_rate
 config.macos_window_background_blur = 20
 
 config.window_decorations = "TITLE | RESIZE"
@@ -40,6 +42,7 @@ config.background = {
 		source = {
 			File = os.getenv("HOME") .. "/Pictures/58839975_p0.png",
 		},
+		opacity = opac_rate,
 		hsb = dimmer,
 		-- height = rows .. "cell",
 		-- width = cols .. "cell",
