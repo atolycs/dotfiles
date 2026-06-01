@@ -45,4 +45,6 @@ toclip() {
   echo -e "\e]52;c;$(base64 | tr -d '\n')\e\\"
 }
 
+alias nvi='nvim'
+
 alias t='tmux a || tmux new-session'
