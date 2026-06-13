@@ -20,6 +20,7 @@ fi
 
 if type port &> /dev/null;then
   export PATH="/opt/local/libexec/gnubin:$PATH"
+  fpath=(/opt/local/share/zsh/site-functions $fpath)
 fi
 
 if type fnm &> /dev/null;then
@@ -65,9 +66,14 @@ case "$TERM" in
 esac
 fi
 
+if [ -n "${GHOSTTY_RESOURCES_DIR}" ]; then
+    builtin source "${GHOSTTY_RESOURCES_DIR}/shell-integration/zsh/ghostty-integration"
+fi
+
 if [[ "$TERM" == "xterm-ghostty" ]]; then
   PS1="${_BEGIN}${_USERNAME}${_USER_HOST_SEP}${_HOSTNAME}${_HOST_DIR_SEP}${_DIR}${_GIT_PROMPT}${_DIR_CMD_SEP} ${_CMDLINE}"
 fi
+
 
 case "${TERM}" in
   ?term*|rxvt*|screen) PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME:=$(hostname)}: ${PWD/$HOME/"~"}\007"';;

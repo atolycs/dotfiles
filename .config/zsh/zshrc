@@ -31,7 +31,7 @@ if type gpg-connect-agent &>/dev/null; then
   gpg-connect-agent updatestartuptty /bye > /dev/null
 fi
 
-typeset -U path PATH
+typeset -U path PATH fpath
 setopt hist_ignore_all_dups
 setopt share_history
 
@@ -49,3 +49,5 @@ fi
 if type -a bat>/dev/null 2>&1; then;
   alias cat='bat'
 fi
+
+export fpath=(~/.local/share/zsh/site-functions $fpath)
