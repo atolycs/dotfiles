@@ -1,5 +1,6 @@
 
 # global alias load
+typeset -U path PATH fpath
 source ~/.config/alias/global.alias
 autoload bashcompinit && bashcompinit
 autoload -Uz compinit && compinit
@@ -31,12 +32,9 @@ if type gpg-connect-agent &>/dev/null; then
   gpg-connect-agent updatestartuptty /bye > /dev/null
 fi
 
-typeset -U path PATH fpath
 
 setopt hist_ignore_all_dups
 setopt share_history
-
-
 
 function fzf-select-history() {
   FZF_DEFAULT_OPTS='--prompt="History >" --border --padding=1 --margin=1 --no-sort +m --height 80% --reverse --border'
@@ -53,4 +51,4 @@ if type -a bat>/dev/null 2>&1; then;
   alias cat='bat'
 fi
 
-export fpath=(~/.local/share/zsh/site-functions $fpath)
+fpath=(~/.local/share/zsh/site-functions $fpath)
