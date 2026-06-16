@@ -1,6 +1,8 @@
 
 # global alias load
 typeset -U path PATH fpath
+export fpath=(~/.local/share/zsh/site-functions $fpath)
+
 source ~/.config/alias/global.alias
 autoload bashcompinit && bashcompinit
 autoload -Uz compinit && compinit
@@ -51,4 +53,3 @@ if type -a bat>/dev/null 2>&1; then;
   alias cat='bat'
 fi
 
-fpath=(~/.local/share/zsh/site-functions $fpath)
