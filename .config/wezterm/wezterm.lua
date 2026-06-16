@@ -2,6 +2,10 @@ local wezterm = require("wezterm")
 local config = wezterm.config_builder()
 
 local dimmer = { brightness = 0.1 }
+local global_atolycs = {
+	opacity = 0.8,
+}
+
 config.font = wezterm.font("FiraCode Nerd Font Mono", {
 	weight = "Regular",
 	stretch = "Normal",
@@ -9,6 +13,8 @@ config.font = wezterm.font("FiraCode Nerd Font Mono", {
 
 local rows = 30
 local cols = 120
+
+local opac_rate = 0.7
 
 config.automatically_reload_config = true
 config.initial_rows = rows
@@ -18,7 +24,7 @@ config.use_ime = true
 -- font size
 config.font_size = 12.0
 
-config.window_background_opacity = 0.7
+config.window_background_opacity = global_atolycs.opacity
 config.macos_window_background_blur = 20
 
 config.window_decorations = "TITLE | RESIZE"
@@ -40,6 +46,7 @@ config.background = {
 		source = {
 			File = os.getenv("HOME") .. "/Pictures/58839975_p0.png",
 		},
+		opacity = global_atolycs.opacity,
 		hsb = dimmer,
 		-- height = rows .. "cell",
 		-- width = cols .. "cell",

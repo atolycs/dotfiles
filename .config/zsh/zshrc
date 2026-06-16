@@ -33,8 +33,6 @@ fi
 
 typeset -U path PATH fpath
 
-fpath=(~/.local/share/zsh/site-functions ${fpath})
-
 setopt hist_ignore_all_dups
 setopt share_history
 
@@ -54,3 +52,5 @@ fi
 if type -a bat>/dev/null 2>&1; then;
   alias cat='bat'
 fi
+
+export fpath=(~/.local/share/zsh/site-functions $fpath)
