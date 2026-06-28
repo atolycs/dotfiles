@@ -1,6 +1,7 @@
 Host *
   #IdentityAgent ${XDG_RUNTIME_DIR}/gnupg/S.gpg-agent.ssh
-  IdentityAgent /Users/atolycs/.gnupg/S.gpg-agent.ssh
+  #IdentityAgent /Users/atolycs/.gnupg/S.gpg-agent.ssh
+  IdentityAgent ${HOME}/.gnupg/S.gpg-agent.ssh
 
 Include conf.d/*.conf
 
