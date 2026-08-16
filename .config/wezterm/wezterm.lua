@@ -4,6 +4,7 @@ local config = wezterm.config_builder()
 local dimmer = { brightness = 0.1 }
 local global_atolycs = {
 	opacity = 0.8,
+	wallpaper_path = os.getenv("HOME") .. "/github/wallpaper-stores/chatgpt-dark-hacker-girl.png",
 }
 
 config.font = wezterm.font("FiraCode Nerd Font Mono", {
@@ -44,7 +45,7 @@ config.leader = { key = "q", mods = "CTRL", timeout_milliseconds = 2000 }
 config.background = {
 	{
 		source = {
-			File = os.getenv("HOME") .. "/Pictures/58839975_p0.png",
+			File = global_atolycs.wallpaper_path,
 		},
 		opacity = global_atolycs.opacity,
 		hsb = dimmer,
